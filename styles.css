@@ -1,0 +1,107 @@
+/*
+  Design tokens: changing these values is the quickest way to retheme the
+  site while keeping its visual hierarchy intact.
+*/
+:root {
+  --paper: #f5f1e8;
+  --ink: #1d1d1b;
+  --accent: #d85a32;
+  --muted: #716c64;
+}
+
+/* A predictable box model makes the layout easier to maintain. */
+* {
+  box-sizing: border-box;
+}
+
+/*
+  The body holds the page in a three-row grid: header, flexible content, and
+  footer. It therefore keeps its balanced spacing at any screen height.
+*/
+body {
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: auto 1fr auto;
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* Header items sit at opposite sides of the page. */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* The orange mark is the page's only strong color accent. */
+.mark {
+  display: grid;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--paper);
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.status,
+.eyebrow,
+footer {
+  color: var(--muted);
+}
+
+/* The main region occupies the available space and centers the introduction. */
+main {
+  align-self: center;
+  max-width: 62rem;
+  padding-block: 4rem;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* clamp keeps the headline prominent on desktop without crowding small phones. */
+h1 {
+  margin: 0;
+  font-size: clamp(3.6rem, 11vw, 10rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.87;
+}
+
+/* Italic type distinguishes the final number without introducing another block. */
+em {
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.supporting-copy {
+  margin: 2rem 0 0;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--muted);
+}
+
+footer {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+/* Narrow screens benefit from a slightly less compressed headline. */
+@media (max-width: 34rem) {
+  h1 {
+    font-size: clamp(3.3rem, 18vw, 5.5rem);
+    line-height: 0.92;
+  }
+}
