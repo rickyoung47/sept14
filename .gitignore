@@ -1,0 +1,5 @@
+# Wrangler stores local metadata here; it is not application source code.
+.wrangler/
+
+# macOS Finder metadata should remain local.
+.DS_Store
